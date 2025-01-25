@@ -2,7 +2,7 @@
 const Header = () => {
     return (
         <>
-            <header>
+            <header className="text-green-500">
                 THEMIS
             </header>
         </>
