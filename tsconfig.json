@@ -4,11 +4,13 @@
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
   ],
-  // "compilerOptions": {
-  //   "strict": true,
-  //   "paths": {
-  //     "@app/*": ["src/app/*"],
-  //     "@node/*": ["src/node/*"]
-  //   }
-  // }
+  "compilerOptions": {
+    "strict": true,
+    "baseUrl": "src",
+    // "paths": {
+      // "@app/*": ["src/app/*"],
+      // "@node/*": ["src/node/*"],
+      // "@assets*": ["assets/*"]
+    // }
+  }
 }
