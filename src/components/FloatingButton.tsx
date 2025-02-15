@@ -9,7 +9,7 @@ interface FloatingButtonProps {
     right?: boolean
 }
 
-const FloatingBackButton: React.FC<FloatingButtonProps> = ({
+const FloatingButton: React.FC<FloatingButtonProps> = ({
     onClick, 
     buttonText,
     top,
@@ -20,10 +20,10 @@ const FloatingBackButton: React.FC<FloatingButtonProps> = ({
 
     return (
         <button className={`fixed bg-cyan-500 hover:bg-cyan-600 rounded-2xl shadow-lg text-white text-2xl font-bold w-12 h-12 flex justify-center items-center cursor-pointer
-            ${top && 'top-4'} 
-            ${left && 'left-4'} 
-            ${bottom && 'bottom-4'} 
-            ${right && 'right-4'} `}
+            ${top ? 'top-4' : ''} 
+            ${left ? 'left-4' : ''} 
+            ${bottom ? 'bottom-4' : ''} 
+            ${right ? 'right-4' : ''} `}
             onClick={onClick}
         >
             {buttonText}
@@ -31,4 +31,4 @@ const FloatingBackButton: React.FC<FloatingButtonProps> = ({
     )
 };
 
-export default FloatingBackButton;
+export default FloatingButton;

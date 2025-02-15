@@ -4,27 +4,37 @@ import {
 } from 'react'
 import { useNavigate } from "react-router-dom";
 
-import Header from '../components/Header.tsx'
-import FloatingButton from '../components/FloatingButton.tsx'
+import Header from '@/components/Header.tsx'
+import FloatingButton from '@/components/FloatingButton.tsx'
 
-import { pages } from "../utils/routes";
-import { Flashcard } from '../utils/Flashcard.ts'
-import { getFlashcards } from '../utils/localStorage.ts'
+import { pages } from "@/utils/routes";
+import { Flashcard } from '@/utils/Flashcard.ts'
+import { getFlashcards } from '@/utils/localStorage.ts'
 
 const Home = () => {
 
     const navigate = useNavigate();
-    const [flashcards, setFlashcards] = useState<Flashcard[]>([]);
+    const [flashcards, setFlashcards] = useState<Flashcard[]>(getFlashcards() || []);
+
+    // Handles changes to localStorage
+    const handleLocalStorageChange = (event: StorageEvent) => {
+        if (event.key === 'flashcards') {
+            setFlashcards(getFlashcards());
+        }
+    };
     
     const goToAddFlashcard = () => {
         navigate(pages.ADD_FLASHCARD);
     }
 
-    // Get flashcards from local storage
+    //Listens for changes to localStorage on component mount
     useEffect(() => {
-        setFlashcards(getFlashcards());
-        console.log(flashcards);
-    },[])
+        window.addEventListener('storage', handleLocalStorageChange);
+
+        return () => {
+            window.removeEventListener('storage', handleLocalStorageChange);
+        }
+    },[]);
 
     return (
         <>

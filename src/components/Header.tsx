@@ -1,5 +1,5 @@
-import d20Left from '/src/assets/d20-blue-left.svg';
-import d20Right from '/src/assets/d20-blue-right.svg';
+import d20Left from '@/assets/d20-blue-left.svg';
+import d20Right from '@/assets/d20-blue-right.svg';
 
 const Header = () => {
     return (

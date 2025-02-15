@@ -10,7 +10,7 @@
     // "paths": {
       // "@app/*": ["src/app/*"],
       // "@node/*": ["src/node/*"],
-      // "@assets*": ["assets/*"]
+      // "@assets/*": ["./src/assets/*"]
     // }
   }
 }
