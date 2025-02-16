@@ -30,8 +30,8 @@ jobs:
 
       # Build the app
       - name: Build
-        env:
-          VITE_BASE_PATH: ${{ secrets.VITE_BASE_PATH }}
+        # env:
+        #   VITE_BASE_PATH: ${{ secrets.VITE_BASE_PATH }}
         run: yarn build
       
       - name: Testing secrets
