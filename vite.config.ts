@@ -3,9 +3,10 @@ import react from '@vitejs/plugin-react'
 import tsconfigPaths from 'vite-tsconfig-paths'
 
 // https://vite.dev/config/
-export default defineConfig(({ command }) => ({
-// export default defineConfig({
-  base: command == 'build' ? '/themis/' : '/',
+// export default defineConfig(({ command }) => ({
+export default defineConfig({
+  base: 'THEMIS/',
+  // base: command == 'build' ? '/themis/' : '/',
   plugins: [react(), tsconfigPaths()],
   css: {
     postcss: './postcss.config.js'
@@ -18,5 +19,5 @@ export default defineConfig(({ command }) => ({
   //     '/vite.svg': require.resolve('./src/assets/vite.svg')
   //   }
   // }
-// });
-}));
+});
+// }));
