@@ -1,1 +1,0 @@
-export const leftArrow = '\u2190';
