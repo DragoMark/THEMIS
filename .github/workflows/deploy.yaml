@@ -33,6 +33,12 @@ jobs:
         # env:
         #   VITE_BASE_PATH: ${{ secrets.VITE_BASE_PATH }}
         run: yarn build
+
+      - name: List all directories
+        run: ls -la
+
+      - name: List build directory
+        run: ls -la ./dist
       
       - name: Testing secrets
         run: echo ${{ secrets.VITE_BASE_PATH }}
