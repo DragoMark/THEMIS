@@ -7,16 +7,16 @@ export const getFlashcards = () => {
     return flashcards ? JSON.parse(flashcards) : [];
 }
 
+// Save flashcards
+export const saveFlashcards = (flashcards: Flashcard[]) => {
+    localStorage.setItem(FLASHCARDS_KEY, JSON.stringify(flashcards));
+}
+
 // Save new flashcard to local storage
 export const saveSingleFlashcard = (flashcard: Flashcard) => {
     const flashcards = getFlashcards();
     flashcards.push(flashcard);
-    localStorage.setItem(FLASHCARDS_KEY, JSON.stringify(flashcards));
-}
-
-// Save flashcards
-export const saveFlashcards = (flashcards: Flashcard[]) => {
-    localStorage.setItem(FLASHCARDS_KEY, JSON.stringify(flashcards));
+    saveFlashcards(flashcards);
 }
 
 // Delete a flashcard by id

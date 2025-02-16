@@ -4,6 +4,7 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: process.env.VITE_BASE_PATH || '/',
   plugins: [react(), tsconfigPaths()],
   css: {
     postcss: './postcss.config.js'
@@ -16,4 +17,4 @@ export default defineConfig({
   //     '/vite.svg': require.resolve('./src/assets/vite.svg')
   //   }
   // }
-})
+});

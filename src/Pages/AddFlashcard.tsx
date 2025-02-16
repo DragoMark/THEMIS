@@ -2,12 +2,23 @@ import { useNavigate } from "react-router-dom";
 
 import FloatingButton from '@/components/FloatingButton.tsx'
 import { leftArrow } from '@/utils/Characters.ts'
+import { Flashcard } from '@/utils/Flashcard'
+
+import {saveSingleFlashcard } from '@/utils/localStorage.ts'
 
 const AddFlashcard = () => {
     const navigate = useNavigate();
 
     const goBack = () => {
         navigate(-1);
+    }
+
+    const handleSubmit  = (data: Flashcard) => {
+        // Add the logic here to update localStorage
+
+        saveSingleFlashcard(data);
+
+
     }
 
     return (
@@ -17,7 +28,12 @@ const AddFlashcard = () => {
             </h1>
 
             <div className="px-2 grid gap-2">
-                {/* The form will go here */}
+                {/* // Add the form here where it takes in data for fields that correspond to the data in flashcardStore.ts */}
+                {/* <form onSubmit={handleSubmit}>
+                    <input type="text" />
+                </form> */}
+
+
             </div>
 
             <FloatingButton 
