@@ -27,6 +27,8 @@ jobs:
       # Build the app
       - name: Build
         run: yarn build
+        env:
+          VITE_BASE_PATH: ${{ secrets.VITE_BASE_PATH }}
 
       # Deploy contents of 'dist' folder to GitHub Pages
       - name: Deploy to Github Pages
@@ -34,7 +36,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          VITE_BASE_PATH: ${{ secrets.VITE_BASE_PATH}}
           
 
 
