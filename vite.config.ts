@@ -6,7 +6,7 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 export default defineConfig(({ command }) => ({
 // export default defineConfig({
   // base: '/THEMIS/',
-  base: command == 'build' ? '/themis/' : '/',
+  base: command == 'build' ? '/THEMIS/' : '/',
   plugins: [react(), tsconfigPaths()],
   css: {
     postcss: './postcss.config.js'
