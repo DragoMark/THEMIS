@@ -30,9 +30,13 @@ jobs:
 
       # Build the app
       - name: Build
-        run: yarn build
         env:
           VITE_BASE_PATH: ${{ secrets.VITE_BASE_PATH }}
+        run: yarn build
+      
+      - name: Testing secrets
+        run: echo ${{ secrets.VITE_BASE_PATH }}
+        
 
       # Deploy contents of 'dist' folder to GitHub Pages
       - name: Deploy to Github Pages
