@@ -1,3 +1,4 @@
+// import { Flashcard, Goal } from '@/utils/Flashcard'
 import { Flashcard } from '@/utils/Flashcard'
 
 export const initialState: Flashcard = {
@@ -6,21 +7,24 @@ export const initialState: Flashcard = {
     plot: '',
     goal: {
         phrase: '',
-        action: []
+        action: [""]
     },
     playerCount: {
-        min: 0,
-        max: 0
+        min: 1,
+        max: 1
     },
     duration: {
-        min: 0,
-        max: 0
+        min: 1,
+        max: 1
     },
     turnActions: {
-        actions: [],
+        actions: [""],
         notes: ''
     },
     endRound: '',
     endGame: '',
-    keywords: []
+    keywords: [""],
+    tags: [""],
+    image: '',
+    bggLink: ''
 };
