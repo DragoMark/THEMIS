@@ -17,11 +17,12 @@ const Home = () => {
     const [flashcards, setFlashcards] = useState<Flashcard[]>(getFlashcards() || []);
 
     // Handles changes to localStorage
-    const handleLocalStorageChange = (event: StorageEvent) => {
-        if (event.key === 'flashcards') {
-            setFlashcards(getFlashcards());
-        }
-    };
+    // const handleLocalStorageChange = (event: StorageEvent) => {
+    //     console.log("Storage event detected: ", event.key);
+    //     if (event.key === 'flashcards') {
+    //         setFlashcards(getFlashcards());
+    //     }
+    // };
     
     const goToAddFlashcard = () => {
         navigate(pages.ADD_FLASHCARD);
@@ -29,12 +30,16 @@ const Home = () => {
 
     //Listens for changes to localStorage on component mount
     useEffect(() => {
-        window.addEventListener('storage', handleLocalStorageChange);
-
-        return () => {
-            window.removeEventListener('storage', handleLocalStorageChange);
-        }
+        setFlashcards(getFlashcards());
     },[]);
+
+    // useEffect(() => {
+    //     window.addEventListener('storage', handleLocalStorageChange);
+
+    //     return () => {
+    //         window.removeEventListener('storage', handleLocalStorageChange);
+    //     }
+    // },[]);
 
     return (
         <>
