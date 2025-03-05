@@ -1,27 +1,30 @@
 export interface Flashcard {
-    id: string;
+    id?: string;
     name: string;
     plot: string;
     goal: Goal;
     playerCount: Range;
     duration: Range;
-    turnActions: TurnActions;
-    endRound: string;
-    endGame: string;
-    keywords: string[];
+    turnActions?: TurnActions;
+    endRound?: string;
+    endGame?: string;
+    keywords?: string[];
+    tags?: string[];
+    image?: string;
+    bggLink?: string;
 }
 
-interface Goal {
+export interface Goal {
     phrase: string;
     action: string[];
 }
 
-interface Range {
+export interface Range {
     min: number;
     max: number;
 }
 
-interface TurnActions {
+export interface TurnActions {
     actions: string[];
-    notes: string;
+    notes?: string;
 }
