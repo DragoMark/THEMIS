@@ -10,6 +10,9 @@ import { initialState } from "@/utils/define";
 import { saveSingleFlashcard } from "@/utils/localStorage";
 
 const inputTextField = "p-4 border-solid border-2 border-zinc-400 rounded-2xl";
+const inputNumField = "p-4 border-solid border-2 border-zinc-400 rounded-2xl max-w-24";
+const inputHeader = "text-lg font-normal";
+const buttonStyle = "p-2 bg-sky-500 rounded-lg hover:bg-cyan-500";
 
 
 const AddFlashcard = () => {
@@ -98,7 +101,7 @@ const AddFlashcard = () => {
                         {...register("plot", {required: true})}
                     />
                     <>
-                        <h2>Goal Action:</h2>
+                        <h2 className={inputHeader}>Goal Action:</h2>
                         <input
                             type="text"
                             id="goal"
@@ -108,7 +111,7 @@ const AddFlashcard = () => {
                         />
                         {
                             goalActionFields.map((field: any, index: number) => (
-                                <div key={field.id} className="flex gap-2 flex-row justify-between">
+                                <div key={field.id} className="flex gap-2 flex-row justify-between items-center">
                                     <input
                                         type="text"
                                         id={`goal.action[${index}]`}
@@ -130,17 +133,17 @@ const AddFlashcard = () => {
                         <button
                             type="button"
                             onClick={() => {appendGoalAction(""); console.log("goals: ", goalActionFields)}}
-                            className="p-2 bg-sky-500 rounded"
+                            className={buttonStyle}
                         >
                             Add Goal Action
                         </button>
                     </>
                     <>
-                        <h2 className="text-lg font-semibold">Player Count: </h2>
+                        <h2 className={inputHeader}>Player Count: </h2>
                         <div className="flex flex-row gap-4">
                             <input 
                                 type="text"
-                                className={`${inputTextField} max-w-12`}
+                                className={`${inputNumField}`}
                                 placeholder="min"
                                 {...register("playerCount.min", {
                                     required: true,
@@ -149,7 +152,7 @@ const AddFlashcard = () => {
                             />
                             <input 
                                 type="text"
-                                className={`${inputTextField} max-w-12`}
+                                className={`${inputNumField}`}
                                 placeholder="max"
                                 {...register("playerCount.max", {
                                     required: true,
@@ -160,11 +163,11 @@ const AddFlashcard = () => {
                         
                     </>
                     <>
-                        <h2 className="text-lg font-semibold">Duration: </h2>
+                        <h2 className={inputHeader}>Duration: </h2>
                         <div className="flex flex-row gap-4">
                             <input 
                                 type="text"
-                                className={`${inputTextField} max-w-12`}
+                                className={`${inputNumField}`}
                                 placeholder="min"
                                 {...register("duration.min", {
                                     required: true,
@@ -173,7 +176,7 @@ const AddFlashcard = () => {
                             />
                             <input 
                                 type="text"
-                                className={`${inputTextField} max-w-12`}
+                                className={`${inputNumField}`}
                                 placeholder="max"
                                 {...register("duration.max", {
                                     required: true,
@@ -183,10 +186,10 @@ const AddFlashcard = () => {
                         </div>
                     </>
                     <>
-                        <h2>Turn Actions:</h2>
+                        <h2 className={inputHeader}>Turn Actions:</h2>
                         {
                             turnActionsFields.map((field: any, index: number) => (
-                                <div key={field.id} className="flex gap-2 flex-row justify-between">
+                                <div key={field.id} className="flex gap-2 flex-row justify-between items-center">
                                     <input
                                         type="text"
                                         id={`turnActions.actions[${index}]`}
@@ -207,7 +210,7 @@ const AddFlashcard = () => {
                         <button
                             type="button"
                             onClick={() => {appendTurnActions(""); console.log("turnActions: ", turnActionsFields)}}
-                            className="p-2 bg-sky-500 rounded"
+                            className={buttonStyle}
                         >
                             Add Turn Action
                         </button>
@@ -219,7 +222,7 @@ const AddFlashcard = () => {
                             {...register("turnActions.notes")}
                         />
                     </>
-                    <input type="submit" placeholder="Submit" className={inputTextField}/>
+                    <input type="submit" placeholder="Submit" className={buttonStyle}/>
                 </form>
             </div>
 

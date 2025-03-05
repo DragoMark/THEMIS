@@ -10,12 +10,12 @@ export const initialState: Flashcard = {
         action: [""]
     },
     playerCount: {
-        min: 0,
-        max: 0
+        min: 1,
+        max: 1
     },
     duration: {
-        min: 0,
-        max: 0
+        min: 1,
+        max: 1
     },
     turnActions: {
         actions: [""],
