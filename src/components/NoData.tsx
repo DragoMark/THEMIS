@@ -15,7 +15,8 @@ const NoData = () => {
 
     return (
     <>
-        <div className="p-8 mt-12 flex flex-col items-center">
+        <div className="absolute top-2/4 w-full m-auto text-neutral-700 hover:text-neutral-500 font-macondo text-4xl text-center">
+        {/* <div className="p-8 mt-12 flex flex-col items-center"> */}
         <p>Nat 1 {':\'('}</p>
         <p>No Data Available</p>
         </div>
