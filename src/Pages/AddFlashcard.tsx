@@ -71,6 +71,7 @@ const AddFlashcard = () => {
 
     const onSubmit: SubmitHandler<Flashcard> = (data) => {
         console.log("Submit Data: ", data);
+        data.id = String(Math.floor(Date.now() / 1000));
         saveSingleFlashcard(data);
         goBack();
     };
