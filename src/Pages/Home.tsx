@@ -38,7 +38,7 @@ const Home = () => {
                         {flashcards.map((flashcard: Flashcard) => {
                             return (
                                 <div 
-                                    key={flashcard.id} className="bg-cyan-100 p-4 rounded-2xl shadow-lg"
+                                    key={flashcard.id} className="bg-cyan-100 p-4 rounded-2xl shadow-lg cursor-pointer hover:bg-cyan-200"
                                     onClick={() => openFlashcard(flashcard)}
                                 >
                                     <div className="font-macondo text-2xl text-neutral-700">
