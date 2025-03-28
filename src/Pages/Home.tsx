@@ -15,31 +15,19 @@ const Home = () => {
 
     const navigate = useNavigate();
     const [flashcards, setFlashcards] = useState<Flashcard[]>(getFlashcards() || []);
-
-    // Handles changes to localStorage
-    // const handleLocalStorageChange = (event: StorageEvent) => {
-    //     console.log("Storage event detected: ", event.key);
-    //     if (event.key === 'flashcards') {
-    //         setFlashcards(getFlashcards());
-    //     }
-    // };
     
     const goToAddFlashcard = () => {
         navigate(pages.ADD_FLASHCARD);
     }
 
-    //Listens for changes to localStorage on component mount
+    //Get flashcards from localStorage onMount and store in flashcards state
     useEffect(() => {
         setFlashcards(getFlashcards());
     },[]);
 
-    // useEffect(() => {
-    //     window.addEventListener('storage', handleLocalStorageChange);
-
-    //     return () => {
-    //         window.removeEventListener('storage', handleLocalStorageChange);
-    //     }
-    // },[]);
+    const openFlashcard = (flashcard: Flashcard) => {
+        navigate(`${pages.VIEW_FLASHCARD}${flashcard.id}`, { state: flashcard})
+    }
 
     return (
         <>
@@ -49,7 +37,10 @@ const Home = () => {
                     <div className="flex flex-col gap-4">
                         {flashcards.map((flashcard: Flashcard) => {
                             return (
-                                <div key={flashcard.id} className="bg-cyan-100 p-4 rounded-2xl shadow-lg">
+                                <div 
+                                    key={flashcard.id} className="bg-cyan-100 p-4 rounded-2xl shadow-lg"
+                                    onClick={() => openFlashcard(flashcard)}
+                                >
                                     <div className="font-macondo text-2xl text-neutral-700">
                                         {flashcard.name}
                                     </div>
