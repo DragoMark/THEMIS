@@ -19,6 +19,7 @@ function App() {
 
   // Load flashcards into localStorage
   useEffect(() => {
+    // Fetch flashcards and store in localstorage here?
     saveFlashcards(dummyFlashcards);
   },[]);
 
