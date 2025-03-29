@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useNavigate } from "react-router-dom";
 import { SubmitHandler, useFieldArray, useForm } from "react-hook-form";
 
@@ -75,6 +76,10 @@ const AddFlashcard = () => {
         saveSingleFlashcard(data);
         goBack();
     };
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     // console.log(watch("goal.action"));
 

@@ -1,4 +1,4 @@
-// import React from 'react'
+import { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 
 import { Flashcard } from '@/utils/Flashcard'
@@ -16,6 +16,10 @@ const ViewFlashcard = () => {
     const goBack = () => {
         navigate(pages.HOME);
     }
+
+    useEffect(() => {
+      window.scrollTo(0, 0)
+    }, [])
 
     if(!flashcard) {
         return <NoData />
@@ -47,10 +51,30 @@ const ViewFlashcard = () => {
           flashcard.turnActions !== undefined ? (
             <div className="mt-4">
               <h2 className="text-xl font-bold">Turn Actions</h2>
-              <p>{flashcard.turnActions?.notes}</p>
               <ul>
                 {flashcard.turnActions.actions.map((action, index) => (
                   <li key={index}>- {action}</li>
+                ))}
+              </ul>
+              <p>{flashcard.turnActions?.notes}</p>
+            </div>
+          ) : null
+        }
+        <div className="my-4 flex flex-col gap-2">
+          <div>
+            <h3>End Round: <span>{flashcard.endRound}</span></h3>
+          </div>
+          <div>
+            <h3>End Game: <span>{flashcard.endGame}</span></h3>
+          </div>
+        </div>
+        {
+          flashcard.keywords !== undefined ? (
+            <div className="mt-4">
+              <h2 className="text-xl font-bold">Keywords</h2>
+              <ul>
+                {flashcard.keywords.map((keyword, index) => (
+                  <li key={index}>- {keyword}</li>
                 ))}
               </ul>
             </div>
